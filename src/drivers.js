@@ -3,6 +3,7 @@ import Nav from './nav'
 import Sidebar from './sidebar'
 import { IoIosArrowForward } from "react-icons/io";
 import { IconContext } from "react-icons";
+import ReactCollapsingTable from 'react-collapsing-table'
 
 class Drivers extends Component {
     state = {
@@ -20,6 +21,27 @@ class Drivers extends Component {
 
     render() {
         const { drivers, tripDetails } = this.state
+
+        const rows = tripDetails.map((cur, i) => {
+            return {
+                id: i + 1,
+                name: cur.name,
+                busAssigned: cur.bus,
+                passengers: cur.passengers,
+                tripDate: cur.date,
+                mileage: cur.mileage,
+            }
+        })
+
+        const columns = [
+            { accessor: 'id', label: '', priorityLevel: 1, position: 1, minWidth: 150, isVisible: true, sortable: false },
+            { accessor: 'name', label: 'NAME', priorityLevel: 2, position: 2, minWidth: 150, isVisible: true, sortable: false },
+            { accessor: 'busAssigned', label: 'BUS ASSIGNED', priorityLevel: 3, position: 3, minWidth: 150, isVisible: true, sortable: false },
+            { accessor: 'passengers', label: 'PASSENGERS', priorityLevel: 4, position: 4, minWidth: 150, sortable: false },
+            { accessor: 'tripDate', label: 'TRIP DATE', priorityLevel: 5, position: 5, minWidth: 150, isVisible: true, sortable: false },
+            { accessor: 'mileage', label: 'MILEAGE', priorityLevel: 6, position: 6, minWidth: 150, isVisible: true, sortable: false },
+        ]
+
         return (
             <div>
                 <Nav />
@@ -40,29 +62,12 @@ class Drivers extends Component {
                             <input type='date' defaultValue='2019-03-30' className='drivers-date driver-heading' />
                         </label>
                         <button className='filter-button driver-heading'>FILTER</button>
-                        <div>
-                            <div className='details-description'>
-                                <p>NAME</p>
-                                <p>BUS ASSIGNED</p>
-                                <p>PASSENGERS</p>
-                                <p>TRIP DATE</p>
-                                <p>MILEAGE</p>
-                            </div>
-                            <div>
-                                {tripDetails.map((cur, i) => (
-                                    <div className='trip-details'>
-                                        <p className='trip-detail' style={{ color: '#8798AD', width: '38px' }}>{i + 1}</p>
-                                        <div className='collection'>
-                                            <p className='trip-detail passenger-name'>{cur.name}</p>
-                                            <p className='trip-detail'>{cur.bus}</p>
-                                            <p className='trip-detail'>{cur.passengers}</p>
-                                            <p className='trip-detail'>{cur.date}</p>
-                                            <p className='trip-detail'>{cur.mileage}</p>
-                                        </div>
-
-                                    </div>
-                                ))}
-                            </div>
+                        <div className='react-table'>
+                            <ReactCollapsingTable
+                                rows={rows}
+                                columns={columns}
+                                theme='my-collapsible-theme'
+                            />
                         </div>
                     </section>
                 </div>

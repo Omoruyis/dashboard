@@ -8,7 +8,8 @@
 } */
 
 body {
-    position: relative
+    position: relative;
+    font-family: 'Rubik', sans-serif;
 }
 
 button {
@@ -332,50 +333,6 @@ button {
     margin-bottom: 20px;
 }
 
-.details-description {
-    font-size: 16px;
-    line-height: 19px;
-    margin-top: 54px;
-    margin-bottom: 17px;
-    color: #8798AD;
-    display: flex;
-    padding-left: 65px;
-}
-
-.details-description p {
-    width: 25%;
-}
-
-.trip-details {
-    padding-left: 28px;
-    background: white;
-    margin-bottom: 5px;
-    min-height: 75px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.collection {
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-.collection p {
-    /* word-wrap: break-word; */
-    width: 25%;
-    word-break: break-all;
-}
-
-.trip-detail {
-    font-size: 15px;
-    line-height: 18px;
-    padding-right: 5px;
-    color: #303945
-}
-
-
 
 /********* Trip ******/
 
@@ -574,6 +531,92 @@ tr .summary-detail-grey {
     word-break: break-all;
 }
 
+
+/* React Table */
+
+.react-table {
+    margin-top: 54px;
+    margin-bottom: 17px;
+}
+
+.my-collapsible-theme table.react-collapsible {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.my-collapsible-theme .react-collapsible thead,
+.my-collapsible-theme .react-collapsible .child-label {
+    text-align: left;
+    font-size: 16px;
+    text-transform: uppercase;
+    line-height: 19px;
+    color: #8798AD;
+}
+
+
+.my-collapsible-theme .react-collapsible thead th {
+    border-right: 0;
+    padding-bottom: 17px;
+}
+
+
+
+
+.my-collapsible-theme .react-collapsible .clickable {
+    cursor: pointer;
+}
+
+.my-collapsible-theme .react-collapsible td{
+    border-right: 0;
+    background: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 12px;
+    color: #303945;
+}
+
+.my-collapsible-theme .react-collapsible td.id{
+    padding-left: 28px;
+    color: #8798AD
+}
+
+.my-collapsible-theme .react-collapsible td.busAssigned{
+    color: #8798AD
+}
+
+.my-collapsible-theme .react-collapsible tr {
+    margin-bottom: 20px;
+    background: #E5E5E5;
+    border-bottom: 5px #E5E5E5 solid;
+}
+
+/*child row in table */
+
+.my-collapsible-theme .react-collapsible .child-cell {
+    display: flex;
+}
+
+.my-collapsible-theme .react-collapsible .child-label {
+    margin-left: 1.6rem;
+    flex-basis: 25%;
+}
+
+.my-collapsible-theme .react-collapsible .child-content {
+    flex-basis: 75%;
+}
+
+/* Media for react-collapsible-table */
+
+@media screen and (max-width: 640px) {
+    .my-collapsible-theme .react-collapsible .child-label {
+        margin-left: 1.6rem;
+        flex-basis: 50%;
+    }
+    .my-collapsible-theme .react-collapsible .child-content {
+        flex-basis: 50%;
+        margin-left: 25px;
+    }
+}
 
 
 

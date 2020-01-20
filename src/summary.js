@@ -58,10 +58,6 @@ class Summary extends Component {
                                 {value.map((cur, i) => {
                                 return <td className='table-detail' width='25%' key={i} id={`${i === (value.length - 1) ? 'no-border' : ''}`}>{summary[cur]}</td>
                                 })}
-                                {/* <td className='table-detail' width="25%">03/30/2019</td>
-                                <td className='table-detail' width="25%">Ebute-Metta, Lagos</td>
-                                <td className='table-detail' width="25%">03/30/2019</td>
-                                <td className='table-detail' id='no-border' width="25%">Ebute-Meta, Lagos</td> */}
                             </tr>
                         </table>
                     </div>
