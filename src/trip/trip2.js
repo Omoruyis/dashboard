@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import { IoIosArrowForward } from "react-icons/io";
 import {
     FaRegCalendarAlt
 } from 'react-icons/fa'
 import { IconContext } from "react-icons";
+import Input from '../smallComponents/inputs'
+import Button from '../smallComponents/button'
+import Select from '../smallComponents/select'
 
 class Trip2 extends Component {
 
-    display = (displayPage) => {
-        this.props.display(displayPage)
-    }
+    // display = (displayPage) => {
+    //     this.props.display(displayPage)
+    // }
 
     render() {
 
@@ -26,7 +30,7 @@ class Trip2 extends Component {
                             <p id='first-form'>Date</p>
                         </label>
                         <div>
-                            <input type='date' defaultValue='Select Date' className='form-date' />
+                            <Input type='date' valueClass='form-date' />
                         </div>
                     </div>
 
@@ -35,9 +39,10 @@ class Trip2 extends Component {
                             <p id='first-form'>Station</p>
                         </label>
                         <div>
-                            <select className='form-date'>
-                                <option>Ikeja</option>
-                            </select>
+                            <Select
+                                valueClass='form-date'
+                                options={['Select Station', 'Ikeja', 'Station 2']}
+                            />
                         </div>
                     </div>
                 </div>
@@ -52,7 +57,7 @@ class Trip2 extends Component {
                             <p>Captain Full Name</p>
                         </label>
                         <div>
-                            <input type='text' className='form-date' />
+                            <Input type='text' valueClass='form-date' />
                         </div>
                     </div>
                     <div className='form-detail'>
@@ -60,7 +65,7 @@ class Trip2 extends Component {
                             <p>Staff ID</p>
                         </label>
                         <div>
-                            <input type='text' className='form-date' />
+                            <Input type='text' valueClass='form-date' />
                         </div>
                     </div>
                 </div>
@@ -71,9 +76,10 @@ class Trip2 extends Component {
                             <p>Trip Type</p>
                         </label>
                         <div>
-                            <select className='form-date'>
-                                <option>Sub Trip</option>
-                            </select>
+                            <Select
+                                valueClass='form-date'
+                                options={['Sub Trip', 'Long Trip', 'Short Trip']}
+                            />
                         </div>
                     </div>
 
@@ -82,7 +88,7 @@ class Trip2 extends Component {
                             <p>Operator</p>
                         </label>
                         <div>
-                            <input type='text' className='form-date' />
+                            <Input type='text' valueClass='form-date' />
                         </div>
                     </div>
                 </div>
@@ -93,7 +99,7 @@ class Trip2 extends Component {
                             <p>Number Of Passengers</p>
                         </label>
                         <div>
-                            <input type='text' className='form-date' />
+                            <Input type='text' valueClass='form-date' />
                         </div>
                     </div>
 
@@ -102,9 +108,9 @@ class Trip2 extends Component {
                             <p>AC</p>
                         </label>
                         <div className='checkbox'>
-                            <input type='checkbox' />
+                            <Input type='checkbox' />
                             <p>YES</p>
-                            <input type='checkbox' />
+                            <Input type='checkbox' />
                             <p>NO</p>
                         </div>
                     </div>
@@ -116,7 +122,7 @@ class Trip2 extends Component {
                             <p>Mileage</p>
                         </label>
                         <div>
-                            <input type='text' className='form-date' />
+                            <Input type='text' valueClass='form-date' />
                         </div>
                     </div>
                     <div className='form-detail'>
@@ -124,15 +130,26 @@ class Trip2 extends Component {
                             <p>Bus Loaded By</p>
                         </label>
                         <div>
-                            <input type='text' className='form-date' />
+                            <Input type='text' valueClass='form-date' />
                         </div>
                     </div>
                 </div>
 
+                <Link to="/trip">
+                    <Button valueClass='next-page' id='previous-page' text='PREVIOUS' 
+                    // onClick={() => {
+                    //     this.display('previous')
+                    // }} 
+                    />
+                </Link>
 
-                <button className='next-page' id='previous-page' onClick={() => this.display('previous')}>PREVIOUS</button>
-
-                <button className='next-page' id='summary' onClick={() => this.display('summary')}>VIEW SUMMARY</button>
+                <Link to="/trip/summary">
+                    <Button valueClass='next-page' id='summary' text='VIEW SUMMARY' 
+                    // onClick={() => {
+                    //     this.display('summary')
+                    // }} 
+                    />
+                </Link>
             </section>
 
         )

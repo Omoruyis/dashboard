@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import { FaAngleRight } from 'react-icons/fa'
 import { IoIosArrowForward, IoIosArrowRoundBack } from "react-icons/io";
 
@@ -11,9 +12,9 @@ import { MdKeyboardBackspace } from "react-icons/md";
 
 class Summary extends Component {
 
-    display = (displayPage) => {
-        this.props.display(displayPage)
-    }
+    // display = (displayPage) => {
+    //     this.props.display(displayPage)
+    // }
 
 
     render() {
@@ -30,12 +31,12 @@ class Summary extends Component {
                 </IconContext.Provider></span>Fill Form</p>
                 <div className='summary-heading'>
                     <p className='summary'>Summary</p>
-                    <div onClick={() => this.display('next')}>
-                        <span ><IconContext.Provider
+                    <div>
+                        <Link to="/trip/nextpage"><span ><IconContext.Provider
                             value={{ className: 'right-arrow back-arrow' }}
                         >
                             <MdKeyboardBackspace />
-                        </IconContext.Provider></span><span className='go-back'>GO BACK</span>
+                        </IconContext.Provider></span><span className='go-back'>GO BACK</span></Link>
                     </div>
                 </div>
 

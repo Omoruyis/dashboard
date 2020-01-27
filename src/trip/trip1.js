@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import { IoIosArrowForward } from "react-icons/io";
-
+import Input from '../smallComponents/inputs'
+import Button from '../smallComponents/button'
+import Select from '../smallComponents/select'
 import {
     FaRegCalendarAlt
 } from 'react-icons/fa'
@@ -13,12 +16,12 @@ class Trip1 extends Component {
         arrivalTime: '',
         arrivedFrom: '',
         departureTime: '',
-        departedTo: '', 
+        departedTo: '',
     }
 
-    display = (displayPage) => {
-        this.props.display(displayPage)
-    }
+    // display = (displayPage) => {
+    //     this.props.display(displayPage)
+    // }
 
     change = (e) => {
         this.setState({
@@ -50,7 +53,7 @@ class Trip1 extends Component {
                             <p id='first-form'>Date</p>
                         </label>
                         <div>
-                            <input type='date' defaultValue='Select Date' className='form-date' />
+                            <Input type='date' valueClass='form-date' />
                         </div>
                     </div>
 
@@ -59,9 +62,10 @@ class Trip1 extends Component {
                             <p id='first-form'>Station</p>
                         </label>
                         <div>
-                            <select className='form-date'>
-                                <option>Select Station</option>
-                            </select>
+                            <Select
+                                valueClass='form-date'
+                                options={['Select Station', 'Station 1', 'Station 2']}
+                            />
                         </div>
                     </div>
                 </div>
@@ -76,7 +80,7 @@ class Trip1 extends Component {
                             <p>Bus Code</p>
                         </label>
                         <div>
-                            <input type='text' className='form-date' value={buscode} name='buscode' onChange={this.change} />
+                            <Input type='text' value={buscode} valueClass='form-date' name='buscode' change={this.change} />
                         </div>
                     </div>
                 </div>
@@ -87,7 +91,7 @@ class Trip1 extends Component {
                             <p>Arrival Time</p>
                         </label>
                         <div>
-                            <input type='date' defaultValue='Select Date' className='form-date' value={arrivalTime} name='arrivalTime' onChange={this.change} />
+                            <Input type='date' value={arrivalTime} valueClass='form-date' name='arrivalTime' change={this.change} />
                         </div>
                     </div>
 
@@ -96,7 +100,7 @@ class Trip1 extends Component {
                             <p>Arrived From</p>
                         </label>
                         <div>
-                            <input type='text' className='form-date' value={arrivedFrom} name='arrivedFrom' onChange={this.change} />
+                            <Input type='text' value={arrivedFrom} valueClass='form-date' name='arrivedFrom' change={this.change} />
                         </div>
                     </div>
                 </div>
@@ -107,7 +111,7 @@ class Trip1 extends Component {
                             <p>Departure Time</p>
                         </label>
                         <div>
-                            <input type='date' defaultValue='Select Date' className='form-date' value={departureTime} name='departureTime' onChange={this.change} />
+                            <Input type='date' value={departureTime} valueClass='form-date' name='departureTime' change={this.change} />
                         </div>
                     </div>
 
@@ -116,18 +120,18 @@ class Trip1 extends Component {
                             <p>Departed To</p>
                         </label>
                         <div>
-                            <input type='text' className='form-date' value={departedTo} name='departedTo' onChange={this.change} />
+                            <Input type='text' value={departedTo} valueClass='form-date' name='departedTo' change={this.change} />
                         </div>
                     </div>
                 </div>
 
-
-                <button className='next-page' onClick={() => {
+                <Link to='/trip/nextpage'><Button valueClass='next-page' text='NEXT' onClick={() => {
                     this.updateCode(buscode)
                     this.updateSummary({ arrivalTime, arrivedFrom, departureTime, departedTo })
-                    this.display('next')
-                }}>NEXT</button>
-
+                    // this.display('next')
+                }} />
+                </Link>
+                
             </section>
         )
 

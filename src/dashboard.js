@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Nav from './nav'
 import Sidebar from './sidebar'
-import naira from './images/naira.svg'
+import DashboardComponent from './smallComponents/dashboardComponents'
+import Select from './smallComponents/select'
+import Text from './smallComponents/text'
 
 class Dashboard extends Component {
     state = {
@@ -17,17 +19,18 @@ class Dashboard extends Component {
                         dashboard={this.state.dashboard}
                     />
                     <section className='section-container'>
-                        <p>Dashboard</p>
+                        <Text text='Dashboard' textClass='section-container-p' TagName='p'/>
                         <div className='dashboard-elements'>
-                            <div className='dashboard-element'>
-                                <p className='element-title'>Revenue</p>
-                                <div className='element-value'>
-                                    <div className='circle'>
-                                        <img src={naira}></img>
-                                    </div>
-                                    <p className='amount'>32,500,000</p>
-                                </div>
-                            </div>
+                            <DashboardComponent
+                                contents={{
+                                    value:'32,500,000',
+                                    valueClass:'amount',
+                                    valueWrapper:'element-value',
+                                    wrapperClass:'dashboard-element',
+                                    titleClass:'element-title',
+                                    title:'Revenue',
+                                }}   
+                            />
                             <div className='dashboard-element'>
                                 <p className='element-title'>No of Buses</p>
                                 <div className='element-value'>
@@ -57,9 +60,10 @@ class Dashboard extends Component {
                                 <p className='element-title'>Revenue Filter</p>
                             </div>
                             <div className='dashboard-stations dashboard-element2'>
-                                <select className='stations'>
-                                    <option>Select Station</option>
-                                </select>
+                                <Select
+                                valueClass='stations'
+                                options={['Select Station', 'Station 1']} 
+                                />
                                 <div className='locations'>
                                     <p>Ebute-Meta</p>
                                 </div>

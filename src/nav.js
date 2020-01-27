@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import './app.css'
 import image from './images/image.png'
-import Group from './images/Group.svg'
-import { FaAngleRight } from 'react-icons/fa'
+import Input from './smallComponents/inputs'
 
 
 class Nav extends Component {
@@ -25,7 +24,7 @@ class Nav extends Component {
                 </div>
                 <img src={image} className="App-logo" alt="logo" />
                 <label className='label'>
-                    <input type='text' placeholder='Type here to search' className='search' />
+                    <Input type='text' placeholder='Type here to search' valueClass='search'/>
                 </label>
             </nav>
         )
