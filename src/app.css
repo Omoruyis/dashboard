@@ -553,14 +553,11 @@ tr .summary-detail-grey {
     color: #8798AD;
 }
 
-
 .my-collapsible-theme .react-collapsible thead th {
     border-right: 0;
     padding-bottom: 17px;
+    text-align: center
 }
-
-
-
 
 .my-collapsible-theme .react-collapsible .clickable {
     cursor: pointer;
@@ -573,6 +570,7 @@ tr .summary-detail-grey {
     padding-bottom: 10px;
     font-size: 12px;
     color: #303945;
+    text-align: center;
 }
 
 .my-collapsible-theme .react-collapsible td.id{
